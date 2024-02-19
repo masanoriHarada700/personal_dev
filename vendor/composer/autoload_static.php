@@ -130,6 +130,7 @@ class ComposerStaticInitcee632b657a0ed7c21e8740979762ad8
             'Laravel\\Sail\\' => 13,
             'Laravel\\Prompts\\' => 16,
             'Laravel\\Breeze\\' => 15,
+            'LaravelLang\\Lang\\' => 17,
         ),
         'I' => 
         array (
@@ -436,6 +437,10 @@ class ComposerStaticInitcee632b657a0ed7c21e8740979762ad8
         array (
             0 => __DIR__ . '/..' . '/laravel/breeze/src',
         ),
+        'LaravelLang\\Lang\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel-lang/lang/src',
+        ),
         'Illuminate\\Support\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Macroable',
@@ -541,6 +546,8 @@ class ComposerStaticInitcee632b657a0ed7c21e8740979762ad8
         'App\\Http\\Controllers\\Auth\\VerifyEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerifyEmailController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
+        'App\\Http\\Controllers\\ProfilePage\\CreateUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfilePage/CreateUserController.php',
+        'App\\Http\\Controllers\\ProfilePage\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfilePage/IndexController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -552,8 +559,10 @@ class ComposerStaticInitcee632b657a0ed7c21e8740979762ad8
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
+        'App\\Http\\Requests\\ProfilePage\\CreateUserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfilePage/CreateUserRequest.php',
         'App\\Http\\Requests\\ProfileUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileUpdateRequest.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\Users_profiles' => __DIR__ . '/../..' . '/app/Models/Users_profiles.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -2770,6 +2779,18 @@ class ComposerStaticInitcee632b657a0ed7c21e8740979762ad8
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+        'LaravelLang\\Lang\\Plugins\\Breeze' => __DIR__ . '/..' . '/laravel-lang/lang/src/Plugins/Breeze.php',
+        'LaravelLang\\Lang\\Plugins\\Cashier' => __DIR__ . '/..' . '/laravel-lang/lang/src/Plugins/Cashier.php',
+        'LaravelLang\\Lang\\Plugins\\Fortify' => __DIR__ . '/..' . '/laravel-lang/lang/src/Plugins/Fortify.php',
+        'LaravelLang\\Lang\\Plugins\\Jetstream' => __DIR__ . '/..' . '/laravel-lang/lang/src/Plugins/Jetstream.php',
+        'LaravelLang\\Lang\\Plugins\\Laravel' => __DIR__ . '/..' . '/laravel-lang/lang/src/Plugins/Laravel.php',
+        'LaravelLang\\Lang\\Plugins\\Lumen' => __DIR__ . '/..' . '/laravel-lang/lang/src/Plugins/Lumen.php',
+        'LaravelLang\\Lang\\Plugins\\Nova' => __DIR__ . '/..' . '/laravel-lang/lang/src/Plugins/Nova.php',
+        'LaravelLang\\Lang\\Plugins\\SparkPaddle' => __DIR__ . '/..' . '/laravel-lang/lang/src/Plugins/SparkPaddle.php',
+        'LaravelLang\\Lang\\Plugins\\SparkStripe' => __DIR__ . '/..' . '/laravel-lang/lang/src/Plugins/SparkStripe.php',
+        'LaravelLang\\Lang\\Plugins\\Ui' => __DIR__ . '/..' . '/laravel-lang/lang/src/Plugins/Ui.php',
+        'LaravelLang\\Lang\\Provider' => __DIR__ . '/..' . '/laravel-lang/lang/src/Provider.php',
+        'LaravelLang\\Lang\\ServiceProvider' => __DIR__ . '/..' . '/laravel-lang/lang/src/ServiceProvider.php',
         'Laravel\\Breeze\\BreezeServiceProvider' => __DIR__ . '/..' . '/laravel/breeze/src/BreezeServiceProvider.php',
         'Laravel\\Breeze\\Console\\InstallCommand' => __DIR__ . '/..' . '/laravel/breeze/src/Console/InstallCommand.php',
         'Laravel\\Breeze\\Console\\InstallsApiStack' => __DIR__ . '/..' . '/laravel/breeze/src/Console/InstallsApiStack.php',
