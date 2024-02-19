@@ -4,14 +4,14 @@ namespace App\Http\Requests\ProfilePage;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateRequest extends FormRequest
+class CreateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class CreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|max:255',
+            'mail_address' => ['required', 'email:strict,dns,spoof'],
+            'password' => ['required', 'min:8', 'regex:/[a-zA-Z]/', 'regex:/[0-9]/'],
+            'introduction' => 'min:50|max:200'
         ];
     }
 }

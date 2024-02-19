@@ -30,4 +30,10 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/sample', \App\Http\Controllers\ProfilePage\IndexController::class);
 
+Route::get('/profile', \App\Http\Controllers\ProfilePage\TopPageController::class)
+->name('profilePage.profile');
+
+Route::post('/user/create', \App\Http\Controllers\ProfilePage\CreateUserController::class)
+->name('user.create');
+
 require __DIR__.'/auth.php';
