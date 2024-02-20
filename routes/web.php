@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/sample', \App\Http\Controllers\ProfilePage\IndexController::class);
+Route::get('/user_register', \App\Http\Controllers\ProfilePage\IndexController::class);
 
 Route::get('/profile', \App\Http\Controllers\ProfilePage\TopPageController::class)
 ->name('profilePage.profile');
