@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', \App\Http\Controllers\ProfilePage\LoginController::class)
+->name('user.login');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -37,8 +39,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/user_register', \App\Http\Controllers\ProfilePage\IndexController::class)
 ->name('user.register');
 
-Route::get('/user_login', \App\Http\Controllers\ProfilePage\LoginController::class)
-->name('user.login');
+// Route::get('/user_login', \App\Http\Controllers\ProfilePage\LoginController::class)
+// ->name('user.login');
 
 
 Route::post('/user/create', [RegisteredUserController::class, 'store'])
