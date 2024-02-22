@@ -27,8 +27,10 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
+            // 'email' => ['required', 'string', 'email'],
+            // 'password' => ['required', 'string'],
+            'email' => ['required', 'email:strict,dns,spoof'],
+            'password' => ['required', 'regex:/[a-zA-Z]/', 'regex:/[0-9]/', 'min:8'],
         ];
     }
 
@@ -44,8 +46,13 @@ class LoginRequest extends FormRequest
         if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
+            $this->session()->flash('status', 'メールアドレス、もしくはパスワードが間違っています');
+
+            // throw ValidationException::withMessages([
+            //     'email' => trans('auth.failed'),
+            // ]);
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'email' => [''],
             ]);
         }
 

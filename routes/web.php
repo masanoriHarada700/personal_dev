@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,12 +29,19 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/user_register', \App\Http\Controllers\ProfilePage\IndexController::class);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', \App\Http\Controllers\ProfilePage\TopPageController::class)
+    ->name('profilePage.profile');
+});
 
-Route::get('/profile', \App\Http\Controllers\ProfilePage\TopPageController::class)
-->name('profilePage.profile');
+Route::get('/user_register', \App\Http\Controllers\ProfilePage\IndexController::class)
+->name('user.register');
 
-Route::post('/user/create', \App\Http\Controllers\ProfilePage\CreateUserController::class)
+Route::get('/user_login', \App\Http\Controllers\ProfilePage\LoginController::class)
+->name('user.login');
+
+
+Route::post('/user/create', [RegisteredUserController::class, 'store'])
 ->name('user.create');
 
 require __DIR__.'/auth.php';
