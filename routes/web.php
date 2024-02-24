@@ -32,6 +32,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profile', \App\Http\Controllers\ProfilePage\TopPageController::class)
     ->name('profilePage.profile');
+
+    Route::get('/record_study', \App\Http\Controllers\Learn\IndexController::class)
+    ->name('record_study');
 });
 
 Route::get('/user_register', \App\Http\Controllers\ProfilePage\IndexController::class)
