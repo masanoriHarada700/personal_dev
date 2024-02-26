@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom_selectbox_area {
+    position: relative;
+    margin: 0em 0em 0em 0em;
+    float: left;
+  }
+
+.custom_selectbox_area::after {
+    pointer-events: none; /*矢印部分をクリックを可能にする*/
+    position: absolute;
+    color: black;
+    top: 50%;
+    left: 4.5em;
+    transform: translateY(-50%); /*▼を上に移動*/
+    content: "▼";
+  }
+
+.customSelectbox {
+    width: 5.5em;
+    height: 2.5em;
+    border-color: rgb(236, 234, 234);
+    border-radius: 4px;
+    font-size: 1.2em;
+    padding: 0em 1em 0em 1em;
+  }

@@ -6,7 +6,7 @@
     </header>
     <main class="flex flex-auto flex-col">
         <h1 class="py-10 text-2xl flex justify-center">ログイン</h1>
-        <div class="flex-1 flex flex-col h-screen items-center">
+        <div class="flex flex-col items-center">
             <form action="{{ route('login') }}" method="POST" class="w-1/3">
                 @csrf
                 @if (session('status'))

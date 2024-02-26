@@ -2,7 +2,7 @@
     <x-header></x-header>
     <main class="flex flex-auto flex-col">
         <h1 class="py-10 text-2xl flex justify-center">新規登録</h1>
-        <div class="flex-1 flex flex-col h-screen items-center">
+        <div class="flex-1 flex flex-col items-center">
             <form action="{{ route('user.create') }}" method="post" class="w-1/3">
                 @csrf
                 <div>
