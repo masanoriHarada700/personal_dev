@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\DisplayRequest;
 use Illuminate\Http\Request;
 use App\Models\LearningData;
+use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
@@ -17,7 +18,20 @@ class IndexController extends Controller
     public function __invoke(DisplayRequest $request)
     {
 
-        $yearMonthOfUserAssign = $request->input('month');
+        // $data = LearningData::select('learning_item')
+        // ->where('user_id', $request->userId())
+        // ->get();
+        // dd($data);
+        if(session('yearMonthOfUserAssign')){
+
+            $yearMonthOfUserAssign = session('yearMonthOfUserAssign');
+            // session()->put('yearMonthOfUserAssign', $yearMonthOfUserAssign);
+
+        } else {
+
+            $yearMonthOfUserAssign = $request->input('month');
+
+        }
 
         if($yearMonthOfUserAssign){
 
@@ -25,17 +39,17 @@ class IndexController extends Controller
 
             $backend = LearningData::where('user_id', $request->userId())
             ->where('category_id', 1)
-            ->whereRaw('EXTRACT(MONTH FROM created_at) = ?', [$studyMonth])
+            ->where('learning_month', [$studyMonth])
             ->get();
 
             $frontend = LearningData::where('user_id', $request->userId())
             ->where('category_id', 2)
-            ->whereRaw('EXTRACT(MONTH FROM created_at) = ?', [$studyMonth])
+            ->where('learning_month', [$studyMonth])
             ->get();
 
             $infrastructure = LearningData::where('user_id', $request->userId())
             ->where('category_id', 3)
-            ->whereRaw('EXTRACT(MONTH FROM created_at) = ?', [$studyMonth])
+            ->where('learning_month', [$studyMonth])
             ->get();
 
         } else {
@@ -44,24 +58,39 @@ class IndexController extends Controller
 
         $backend = LearningData::where('user_id', $request->userId())
         ->where('category_id', 1)
-        ->whereRaw('EXTRACT(MONTH FROM created_at) = ?', [$currentMonth])
+        ->where('learning_month', [$currentMonth])
         ->get();
 
         $frontend = LearningData::where('user_id', $request->userId())
         ->where('category_id', 2)
-        ->whereRaw('EXTRACT(MONTH FROM created_at) = ?', [$currentMonth])
+        ->where('learning_month', [$currentMonth])
         ->get();
 
         $infrastructure = LearningData::where('user_id', $request->userId())
         ->where('category_id', 3)
-        ->whereRaw('EXTRACT(MONTH FROM created_at) = ?', [$currentMonth])
+        ->where('learning_month', [$currentMonth])
         ->get();
         }
 
+        $values = Category::pluck('name')->toArray();
+        $keys = ['strBackend', 'strFrontend', 'strInfrastructure'];
+        $categories = array_combine($keys, $values);
+
+        if(session('editTime.success') || session('delete.success')){
+
+            session()->put('yearMonthOfUserAssign', $yearMonthOfUserAssign);
+
+        } else {
+            session()->forget('yearMonthOfUserAssign');
+        }
+
         return view('learn.index')
-                ->with('backend', $backend)
-                ->with('frontend', $frontend)
-                ->with('infrastructure', $infrastructure)
-                ->with('yearMonthOfUserAssign', $yearMonthOfUserAssign);
+                ->with([
+                    'categories' => $categories,
+                    'backend' => $backend,
+                    'frontend' => $frontend,
+                    'infrastructure' => $infrastructure,
+                    'yearMonthOfUserAssign' => $yearMonthOfUserAssign,
+                ]);
     }
 }

@@ -30,4 +30,14 @@ class DisplayRequest extends FormRequest
     {
         return $this->user()->id;
     }
+
+    public function month(): int
+    {
+        return $this->month;
+    }
+
+    public function categoryName()
+    {
+        return $this->categoryName;
+    }
 }

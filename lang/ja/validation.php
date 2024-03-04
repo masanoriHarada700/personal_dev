@@ -136,6 +136,8 @@ return [
     'attributes' => [
         'name' => '名前',
         'email'  => 'メールアドレス',
-        'password' => 'パスワード'
+        'password' => 'パスワード',
+        'item' => '項目名',
+        'learning_time' => '学習時間'
     ]
 ];

@@ -38,6 +38,27 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/record_study', \App\Http\Controllers\Learn\IndexController::class)
     ->name('record_study');
+
+    Route::get('/input_item', \App\Http\Controllers\Learn\InputItemController::class)
+    ->name('input.item');
+
+    Route::post('/input_item', \App\Http\Controllers\Learn\InputItemController::class);
+
+    Route::get('/create_item', \App\Http\Controllers\Learn\CreateItemController::class)
+    ->name('create.item');
+
+    Route::post('/create_item', \App\Http\Controllers\Learn\CreateItemController::class);
+
+    Route::get('/edit_time', \App\Http\Controllers\Learn\EditTimeController::class)
+    ->name('edit.time');
+
+    Route::post('/edit_time', \App\Http\Controllers\Learn\EditTimeController::class);
+
+    Route::get('/delete_time', \App\Http\Controllers\Learn\DeleteController::class)
+    ->name('delete.item');
+
+    Route::post('/delete_time', \App\Http\Controllers\Learn\DeleteController::class);
+
 });
 
 Route::get('/user_register', \App\Http\Controllers\ProfilePage\IndexController::class)

@@ -10,7 +10,9 @@
             <form action="{{ route('login') }}" method="POST" class="w-1/3">
                 @csrf
                 @if (session('status'))
-                <x-alert.error>{{ session('status') }}</x-alert.error>
+                <div class="flex justify-center">
+                    <x-alert.error>{{ session('status') }}</x-alert.error>
+                </div>
                 @endif
                 <div class="mt-8">
                     <p>メールアドレス</p>
