@@ -11,7 +11,7 @@ $months = [
 <x-layout title="study">
     <x-header></x-header>
     <main class="py-5 flex flex-col items-center flex-grow">
-        <form action="{{ route('record_study') }}" method="POST" id="monthForm" class=" w-4/6">
+        <form action="{{ route('record_study') }}" method="POST" id="monthForm" class="w-4/6">
             @csrf
             <div class="custom_selectbox_area">
                 <select name="month" id="month-select" class="bg-none customSelectbox">
@@ -24,7 +24,6 @@ $months = [
         {{-- <script>debugger;</script> --}}
 
         <div class="my-4 w-4/6">
-            <div class="">
                 <div class="my-4 border-2 p-6 items-center">
                     <form action="{{ route('input.item') }}" id="add-item1" method="POST" class="py-4 flex justify-between">
                         @csrf
@@ -139,7 +138,9 @@ $months = [
                         @endforeach
                     </div>
                 </div>
-            </div>
+                <form action="{{ route('profilePage.profile') }}" method="get" class="py-10 flex justify-center">
+                    <x-element.button>プロフィールページに戻る</x-element.button>
+                </form>
         </div>
         {{-- <script>debugger;</script> --}}
     </main>

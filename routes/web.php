@@ -30,6 +30,9 @@ Route::get('/dashboard', function () {
 // });
 
 Route::middleware('auth')->group(function () {
+    Route::get('/profile_edit', \App\Http\Controllers\ProfilePage\TopPageController::class)
+    ->name('profile.edit');
+
     Route::get('/profile', \App\Http\Controllers\ProfilePage\TopPageController::class)
     ->name('profilePage.profile');
 
