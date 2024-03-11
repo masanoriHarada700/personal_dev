@@ -138,6 +138,7 @@ return [
         'email'  => 'メールアドレス',
         'password' => 'パスワード',
         'item' => '項目名',
-        'learning_time' => '学習時間'
+        'learning_time' => '学習時間',
+        'profile_sentence' => '自己紹介'
     ]
 ];

@@ -30,8 +30,15 @@ Route::get('/dashboard', function () {
 // });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile_edit', \App\Http\Controllers\ProfilePage\TopPageController::class)
+    Route::get('/profile_edit', \App\Http\Controllers\ProfilePage\EditPageController::class)
     ->name('profile.edit');
+
+    Route::post('/profile_edit', \App\Http\Controllers\ProfilePage\EditPageController::class);
+
+    Route::get('/create_profile', \App\Http\Controllers\ProfilePage\CreateProfileController::class)
+    ->name('create.profile');
+
+    Route::post('/create_profile', \App\Http\Controllers\ProfilePage\CreateProfileController::class);
 
     Route::get('/profile', \App\Http\Controllers\ProfilePage\TopPageController::class)
     ->name('profilePage.profile');
@@ -61,7 +68,6 @@ Route::middleware('auth')->group(function () {
     ->name('delete.item');
 
     Route::post('/delete_time', \App\Http\Controllers\Learn\DeleteController::class);
-
 });
 
 Route::get('/user_register', \App\Http\Controllers\ProfilePage\IndexController::class)

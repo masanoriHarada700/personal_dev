@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use App\Models\LearningData;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TopPageController extends Controller
@@ -15,6 +16,9 @@ class TopPageController extends Controller
      */
     public function __invoke(Request $request)
     {
+
+        $user = User::where('id', $request->user()->id)->first();
+
         // $categoryIds = [];
         $months = [];
 
@@ -51,6 +55,6 @@ class TopPageController extends Controller
             // dd($amountTimes);
         }
         // dd($amountTimesByCategoryId);
-        return view('profilePage.profile',compact('amountTimesByCategoryId'));
+        return view('profilePage.profile',compact('amountTimesByCategoryId', 'user'));
     }
 }
