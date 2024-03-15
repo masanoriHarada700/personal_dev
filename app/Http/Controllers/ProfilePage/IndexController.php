@@ -12,6 +12,6 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('ProfilePage.index');
+        return view('profilePage.index');
     }
 }
