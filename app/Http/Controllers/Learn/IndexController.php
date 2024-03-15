@@ -84,7 +84,7 @@ class IndexController extends Controller
             session()->forget('yearMonthOfUserAssign');
         }
 
-        return view('learn.index')
+        return view('Learn.index')
                 ->with([
                     'categories' => $categories,
                     'backend' => $backend,
