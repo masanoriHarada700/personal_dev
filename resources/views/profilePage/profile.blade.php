@@ -4,8 +4,12 @@
         <div class="w-4/6">
             <div class="py-10 grid grid-cols-2">
                 <div>
-                    <div class="w-64 h-64 rounded-full overflow-hidden mx-auto my-auto">
-                        <img class="object-cover w-full h-full" alt="{{ $user->profile_image }}" src="{{ asset('storage/image/' . $user->profile_image) }}">
+                    <div class="w-64 h-64 rounded-full overflow-hidden mx-auto my-auto flex justify-center items-center">
+                        @if ($user->profile_image)
+                            <img class="object-cover w-full h-full" alt="プロフィール画像" src="{{ asset('storage/image/' . $user->profile_image) }}">
+                        @else
+                            <span class="text-center">画像：未登録</span>
+                        @endif
                     </div>
                     <h2 class="text-lg py-4 flex justify-center">{{ $user->name }}</h2>
                 </div>
