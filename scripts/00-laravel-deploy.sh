@@ -16,4 +16,4 @@ echo "Create symbolic link..."
 php artisan storage:link
 
 echo "Running seeders..."
-php artisan db:seed
+php artisan db:seed --force
