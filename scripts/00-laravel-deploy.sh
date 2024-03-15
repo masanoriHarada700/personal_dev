@@ -14,6 +14,3 @@ php artisan migrate --force
 
 echo "Create symbolic link..."
 php artisan storage:link
-
-echo "Running seeders..."
-php artisan db:seed --force
