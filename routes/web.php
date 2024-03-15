@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('user.register');
+    return view('ProfilePage.index');
 });
 
 Route::get('/dashboard', function () {
