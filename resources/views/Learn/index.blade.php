@@ -70,11 +70,11 @@ $count = 0;
                     </div>
                 </div>
                 <div class="border-2 p-10 mb-8 rounded-lg items-center">
-                        <form action="{{ route('input.item') }}" id="add-item2" method="POST" class="pb-9 flex justify-between">
+                        <form action="{{ route('input.item') }}" id="add-item2" method="POST" class="pb-9 flex justify-between items-center">
                             @csrf
                             <input type="hidden" name="categoryName" value="{{ $categories['strFrontend'] }}">
                             <input type="hidden" name="month" id="selected-month-addItem2" value="">
-                            <h2 class="border-b-2 font-bold text-gray-75 border-gray-50 w-1/5 pb-3.5 mr-4">{{ $categories['strFrontend'] }}</h2>
+                            <h2 class="border-b-2 h-full font-bold text-gray-75 text-2xl border-gray-50 w-1/5 pb-2 mr-4">{{ $categories['strFrontend'] }}</h2>
                             <x-element.button>項目を追加する</x-element.button>
                         </form>
                     <div class="border shadow rounded">
@@ -114,11 +114,11 @@ $count = 0;
                     </div>
                 </div>
                 <div class="border-2 p-10 mb-8 rounded-lg items-center">
-                    <form action="{{ route('input.item') }}" id="add-item3" method="POST" class="pb-9 flex justify-between">
+                    <form action="{{ route('input.item') }}" id="add-item3" method="POST" class="pb-9 flex justify-between items-center">
                         @csrf
                         <input type="hidden" name="categoryName" value="{{ $categories['strInfrastructure'] }}">
                         <input type="hidden" name="month" id="selected-month-addItem3" value="">
-                        <h2 class="border-b-2 font-bold text-gray-75 border-gray-50 w-1/5 pb-3.5 mr-4">{{ $categories['strInfrastructure'] }}</h2>
+                        <h2 class="border-b-2 h-full font-bold text-gray-75 text-2xl border-gray-50 w-1/5 pb-2 mr-4">{{ $categories['strInfrastructure'] }}</h2>
                         <x-element.button>項目を追加する</x-element.button>
                     </form>
                     <div class="border shadow rounded">
