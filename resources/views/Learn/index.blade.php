@@ -53,12 +53,12 @@ $count = 0;
                                         <input type="hidden" name="learning_time" id="learning-time-hidden{{ $count + $loop->iteration }}" value="">
                                         <x-element.save-button :index="$count + $loop->iteration">学習時間を保存する</x-element.save-button>
                                     </form>
-                                    <form action="{{ route('delete.item') }}" id="delete-item" method="POST" class="pr-10 my-auto">
+                                    <form action="{{ route('delete.item') }}" id="delete-item{{ $count + $loop->iteration }}" method="POST" class="pr-10 my-auto">
                                         @csrf
                                         <input type="hidden" name="categoryName" value="{{ $categories['strBackend'] }}">
                                         <input type="hidden" name="itemName" value="{{ $data->learning_item }}">
-                                        <input type="hidden" name="month" id="selected-month" value="">
-                                        <x-element.delete-button>削除する</x-element.delete-button>
+                                        <input type="hidden" name="month" id="selected-month-delete{{ $count + $loop->iteration }}" value="">
+                                        <x-element.delete-button :index="$count + $loop->iteration">削除する</x-element.delete-button>
                                     </form>
                                 </div>
                             </div>
@@ -97,12 +97,12 @@ $count = 0;
                                         <input type="hidden" name="learning_time" id="learning-time-hidden{{ $count + $loop->iteration}}" value="">
                                         <x-element.save-button :index="$count + $loop->iteration">学習時間を保存する</x-element.save-button>
                                     </form>
-                                    <form action="{{ route('delete.item') }}" id="delete-item" method="POST" class="pr-10 my-auto">
+                                    <form action="{{ route('delete.item') }}" id="delete-item{{ $count + $loop->iteration }}" method="POST" class="pr-10 my-auto">
                                         @csrf
                                         <input type="hidden" name="categoryName" value="{{ $categories['strFrontend'] }}">
                                         <input type="hidden" name="itemName" value="{{ $data->learning_item }}">
-                                        <input type="hidden" name="month" id="selected-month" value="">
-                                        <x-element.delete-button>削除する</x-element.delete-button>
+                                        <input type="hidden" name="month" id="selected-month-delete{{ $count + $loop->iteration }}" value="">
+                                        <x-element.delete-button :index="$count + $loop->iteration">削除する</x-element.delete-button>
                                     </form>
                                 </div>
                             </div>
@@ -141,12 +141,12 @@ $count = 0;
                                                 <input type="hidden" name="learning_time" id="learning-time-hidden{{ $count + $loop->iteration}}" value="">
                                                 <x-element.save-button :index="$count + $loop->iteration">学習時間を保存する</x-element.save-button>
                                             </form>
-                                            <form action="{{ route('delete.item') }}" id="delete-item" method="POST" class="pr-10 my-auto">
+                                            <form action="{{ route('delete.item') }}" id="delete-item{{ $count + $loop->iteration }}" method="POST" class="pr-10 my-auto">
                                                 @csrf
                                                 <input type="hidden" name="categoryName" value="{{ $categories['strInfrastructure'] }}">
                                                 <input type="hidden" name="itemName" value="{{ $data->learning_item }}">
-                                                <input type="hidden" name="month" id="selected-month" value="">
-                                                <x-element.delete-button>削除する</x-element.delete-button>
+                                                <input type="hidden" name="month" id="selected-month-delete{{ $count + $loop->iteration }}" value="">
+                                                <x-element.delete-button :index="$count + $loop->iteration">削除する</x-element.delete-button>
                                             </form>
                                         </div>
                                     </div>
@@ -177,11 +177,18 @@ $(document).ready(function(){
 </script>
 
 <script>
-    function submitForm(count) {
+    function submitForm_editTime(count) {
         var learningTimeValue = document.getElementById('learning-time' + count).value;
         document.getElementById('learning-time-hidden' + count).value = learningTimeValue;
         document.getElementById('selected-month-editTime' + count).value  = document.getElementById('month-select').value;
         document.getElementById('edit-time' + count).submit();
+    }
+</script>
+
+<script>
+    function submitForm_deleteItem(count) {
+        document.getElementById('selected-month-delete' + count).value  = document.getElementById('month-select').value;
+        document.getElementById('delete-item' + count).submit();
     }
 </script>
 

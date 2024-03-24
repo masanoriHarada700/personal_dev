@@ -63,7 +63,7 @@ export default {
                     'clip-path': 'polygon(0 0, 100% 0%, 50% 100%)',
                 },
                 '.indi-learning-data': {
-                    'max-height': '216px',
+                    'max-height': '219px',
                     'overflow-y': 'auto',
                 },
 
