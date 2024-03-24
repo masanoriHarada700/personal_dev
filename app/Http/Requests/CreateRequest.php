@@ -27,7 +27,7 @@ class CreateRequest extends DisplayRequest
     {
         return [
             'item' => ['required', 'string', 'max:50',],
-            'learning_time' => ['required', 'numeric', 'min:0'],
+            'learning_time' => ['required', 'numeric', 'not_in:0', 'decimal:0', 'min:0',],
         ];
     }
 
@@ -49,5 +49,12 @@ class CreateRequest extends DisplayRequest
                 $validator->errors()->add('item', "{$this->item}は既に登録されています。");
             }
         });
+    }
+
+    public function messages(): array
+    {
+        return [
+            'learning_time.not_in' => '学習時間には、0より大きい数字を指定してください。',
+        ];
     }
 }

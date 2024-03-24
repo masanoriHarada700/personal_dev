@@ -1,11 +1,11 @@
 <x-layout title="login">
     <header class="bg-Bitterness-Blue p-4">
         <div class="flex justify-center mx-auto p-2">
-            <h1 class="text-white text-xl">My Portfolio</h1>
+            <h1 class="text-white text-4xl">My Portfolio</h1>
         </div>
     </header>
     <main class="flex flex-auto flex-col">
-        <h1 class="py-10 text-2xl flex justify-center">ログイン</h1>
+        <h1 class="py-10 text-lg flex justify-center">ログイン</h1>
         <div class="flex flex-col items-center">
             <form action="{{ route('login') }}" method="POST" class="w-1/3">
                 @csrf

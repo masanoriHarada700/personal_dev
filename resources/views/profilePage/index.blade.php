@@ -9,9 +9,10 @@
                     <p>氏名</p>
                     <div class="mt-1 py-1">
                         <input name="name"
-                            class="w-full h-10 border-0 resize-none focus:outline-none border-b border-gray-400 ">
+                               class="w-full h-10 border-0 resize-none focus:outline-none border-b border-gray-400"
+                               value="{{ old('name') }}">
                         @error('name')
-                            <p style="color: red;">{{ $message }}</p>
+                            <p class="pt-2" style="color: red;">{{ $message }}</p>
                         @enderror
                     </div>
                 </div>
@@ -19,9 +20,13 @@
                     <p>メールアドレス</p>
                     <div class="mt-2 py-1">
                         <input name="email"
-                            class="w-full h-10 border-0 resize-none focus:outline-none border-b border-gray-400">
+                            class="w-full h-10 border-0 resize-none focus:outline-none border-b border-gray-400" 
+                            value="{{ old('email') }}">
                         @error('email')
-                            <p style="color: red;">{{ $message }}</p>
+                            <p class="pt-2" style="color: red;">{{ $message }}</p>
+                        @enderror
+                        @error('Duplication')
+                        <p class="pt-2" style="color: red;">{{ $message }}</p>
                         @enderror
                     </div>
                 </div>
@@ -30,16 +35,16 @@
                     <div class="mt-1 py-1">
                         <input type="password" name="password"
                             class="w-full h-10 border-0 focus:outline-none border-b border-gray-400"
-                            placeholder="半角英数字を含む8文字以上で入力してください。" value="">
+                            placeholder="半角英数字を含む8文字以上で入力してください。" 
+                            value="{{ old('password') }}">
                         @error('password')
-                            <p style="color: red;">{{ $message }}</p>
+                            <p class="pt-2" style="color: red;">{{ $message }}</p>
                         @enderror
                     </div>
                 </div>
                 <div class="py-10 flex justify-center">
                     <x-element.button>登録する</x-element.button>
                 </div>
-
             </form>
         </div>
     </main>

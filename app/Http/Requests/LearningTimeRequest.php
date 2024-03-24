@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EditProfileRequest extends FormRequest
+class LearningTimeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,14 +22,7 @@ class EditProfileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'profile_sentence' => 'required|min:50|max:200',
-        ];
-    }
-
-    public function messages(): array
-    {
-        return [
-            'profile_sentence.min' => '自己紹介は50文字以上、200文字以下で入力してください',
+            'learning_time' => ['numeric', 'not_in:0', 'decimal:0', 'min:0',],
         ];
     }
 }

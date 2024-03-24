@@ -73,7 +73,7 @@ const myChart = new Chart(ctx, {
         scales: {
             y: {
                 beginAtZero: true,
-                suggestedMax: 500,
+                suggestedMax: 100,
                 }
         },
         plugins: {

@@ -6,19 +6,20 @@
             <form action="{{ route('create.profile') }}" method="post" class="w-1/3" enctype="multipart/form-data">
                 @csrf
                 <div>
-                    <p>自己紹介文</p>
-                    <div class="mt-1 py-1">
+                    <p class="text-gray-400">自己紹介文</p>
+                    <div class="mt-1">
                         <textarea name="profile_sentence"
-                            class="w-full h-28 border-0 resize-none focus:outline-none border-b border-gray-400 "></textarea>
+                            class="w-full h-28 border-0 resize-none focus:outline-none border-b border-gray-400 ">{{ $introduction }}</textarea>
                         @error('profile_sentence')
                             <p style="color: red;">{{ $message }}</p>
                         @enderror
                     </div>
+                    <p class="text-gray-400 text-sm">50文字以上、200文字以下で入力してください</p>
                 </div>
                 <div class="my-10">
-                    <p class="">アバター画像</p>
-                    <label class="block w-1/2 px-5 py-2 my-2 cursor-pointer bg-gray-200 rounded hover:text-white  hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" for="file_upload">
-                    <input type="file" class="hidden" id="file_upload" name="image" accept="image/*">ファイルを選択して下さい</label>
+                    <p class="text-gray-400">アバター画像</p>
+                    <label class="inline-block px-6 py-2 my-2 cursor-pointer bg-gray-200 rounded hover:text-white  hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" for="file_upload">
+                    <input type="file" class="hidden" id="file_upload" name="image" accept="image/*">画像ファイルを添付する</label>
                     <span id="image">{{ old('image') }}</span>
                 </div>
                 <div class="py-10 flex justify-center">

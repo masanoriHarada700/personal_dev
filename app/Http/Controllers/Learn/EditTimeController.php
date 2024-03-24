@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Learn;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\LearningTimeRequest;
 use Carbon\Carbon;
 use App\Models\LearningData;
 use App\Models\Category;
@@ -13,12 +13,13 @@ class EditTimeController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request)
+    public function __invoke(LearningTimeRequest $request)
     {
         $categoryName = $request->categoryName;
         $category = Category::where('name', $categoryName)->first();
         $yearMonth = $request->input('month');
         $month = Carbon::createFromFormat('Y-m', $yearMonth)->format('n');
+        $time = $request->learning_time;
 
         LearningData::where('user_id', $request->user()->id)
         ->where('learning_month', $month)
@@ -29,7 +30,6 @@ class EditTimeController extends Controller
             'updated_at' => Carbon::now()
         ]);
 
-        // session()->put('categoryName', $categoryName);
         session()->put('yearMonthOfUserAssign', $yearMonth);
 
         return redirect()->route('show_study')

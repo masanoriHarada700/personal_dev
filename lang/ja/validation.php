@@ -35,6 +35,7 @@ return [
     'date'                 => ':attributeは、正しい日付ではありません。',
     'date_equals'          => ':attributeは:dateに等しい日付でなければなりません。',
     'date_format'          => ':attributeの形式は、\':format\'と合いません。',
+    'decimal'              => ':attributeは 1分刻みで入力してください。',
     'declined'             => ':attributeは 辞退する必要があります。',
     'declined_if'          => ':otherが:valueの場合、:attributeは拒否されなければならない。',
     'different'            => ':attributeと:otherには、異なるものを指定してください。',
@@ -92,7 +93,7 @@ return [
     'min'                  => [
         'array'   => ':attributeの項目は、:min個以上にしてください。',
         'file'    => ':attributeには、:min KB以上のファイルを指定してください。',
-        'numeric' => ':attributeには、:min以上の数字を指定してください。',
+        'numeric' => ':attributeには、:minより大きい数字を指定してください。',
         'string'  => ':attributeは、:min文字以上にしてください。',
     ],
     'multiple_of'          => ':attributeは:valueの倍数でなければなりません',

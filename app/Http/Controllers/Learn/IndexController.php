@@ -18,14 +18,9 @@ class IndexController extends Controller
     public function __invoke(DisplayRequest $request)
     {
 
-        // $data = LearningData::select('learning_item')
-        // ->where('user_id', $request->userId())
-        // ->get();
-        // dd($data);
         if(session('yearMonthOfUserAssign')){
 
             $yearMonthOfUserAssign = session('yearMonthOfUserAssign');
-            // session()->put('yearMonthOfUserAssign', $yearMonthOfUserAssign);
 
         } else {
 

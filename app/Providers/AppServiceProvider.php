@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Routing\UrlGenerator;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,5 +27,9 @@ class AppServiceProvider extends ServiceProvider
         if (env('APP_ENV') == 'production') {
             $url->forceScheme('https');
         }
+
+        View::composer('*', function ($view) {
+            $view->with('authUser', auth()->user());
+        });
     }
 }
