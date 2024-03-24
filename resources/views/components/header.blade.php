@@ -1,7 +1,7 @@
 <header class="bg-Bitterness-Blue p-4">
     <div class="flex justify-between mx-auto p-2">
         @guest
-        <h1 class="text-white text-2xl">My Portfolio</h1>
+        <h1 class="text-white text-4xl">My Portfolio</h1>
         <form action="{{ route('user.login') }}" method="GET">
             <x-primary-button>ログイン</x-primary-button>
         </form>
