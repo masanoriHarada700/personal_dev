@@ -1,9 +1,11 @@
 <x-layout title="edit-profile">
+    <div class="flex flex-col h-screen">
     <x-header></x-header>
-    <main class="flex flex-auto flex-col">
-        <h1 class="py-10 text-2xl flex justify-center">自己紹介を編集する</h1>
+    <main class="w-1/2 mx-auto flex flex-auto flex-col">
+        <div class="w-480 mx-auto flex flex-col">
+        <h1 class="py-14 text-2xl flex justify-center text-gray-75">自己紹介を編集する</h1>
         <div class="flex-1 flex flex-col items-center">
-            <form action="{{ route('create.profile') }}" method="post" class="w-1/3" enctype="multipart/form-data">
+            <form action="{{ route('create.profile') }}" method="post" class="w-full" enctype="multipart/form-data">
                 @csrf
                 <div>
                     <p class="text-gray-400">自己紹介文</p>
@@ -17,7 +19,7 @@
                     <p class="text-gray-400 text-sm">50文字以上、200文字以下で入力してください</p>
                 </div>
                 <div class="my-10">
-                    <p class="text-gray-400">アバター画像</p>
+                    <p class="text-gray-400 text-sm">アバター画像</p>
                     <label class="inline-block px-6 py-2 my-2 cursor-pointer bg-gray-200 rounded hover:text-white  hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" for="file_upload">
                     <input type="file" class="hidden" id="file_upload" name="image" accept="image/*">画像ファイルを添付する</label>
                     <span id="image">{{ old('image') }}</span>
@@ -27,8 +29,10 @@
                 </div>
             </form>
         </div>
+        </div>
     </main>
     <x-footer></x-footer>
+    </div>
 </x-layout>
 <script>
     // ファイル入力要素を取得

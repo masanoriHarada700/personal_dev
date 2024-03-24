@@ -1,5 +1,5 @@
 <footer class="bg-Bitterness-Blue">
-    <div class="flex justify-center p-4 text-white">
+    <div class="flex justify-center py-2 text-white">
         @auth
         <h1>{{ $authUser->name }}</h1>
         @endauth

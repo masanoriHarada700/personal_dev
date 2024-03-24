@@ -14,7 +14,7 @@ $count = 0;
     <main class="py-5 flex flex-col items-center flex-grow">
         <form action="{{ route('record_study') }}" method="POST" id="monthForm" class="w-4/6">
             @csrf
-            <div class="w-24 h-11  relative text-2xl font-bold mt-5">
+            <div class="w-24 h-11  relative text-2xl font-bold text-black mt-5">
                 <select name="month" id="month-select" class="bg-none border rounded border-gray-300">
                     @foreach($months as $monthValue => $monthName)
                         <option value="{{ $monthValue }}" {{ $monthValue == $yearMonthOfUserAssign ? 'selected' : '' }}>{{ $monthName }}</option>
@@ -26,22 +26,22 @@ $count = 0;
 
         <div class="my-10 w-4/6">
                 <div class="border-2 p-10 mb-8 rounded-lg items-center">
-                    <form action="{{ route('input.item') }}" id="add-item1" method="POST" class="pb-9 flex justify-between">
+                    <form action="{{ route('input.item') }}" id="add-item1" method="POST" class="pb-9 flex justify-between items-center">
                         @csrf
                         <input type="hidden" name="categoryName" value="{{ $categories['strBackend'] }}">
                         <input type="hidden" name="month" id="selected-month-addItem1" value="">
-                        <h2 class="border-b-2 font-bold text-gray-600 border-gray-500 w-1/5 pb-3.5 mr-4">{{ $categories['strBackend'] }}</h2>
+                        <h2 class="border-b-2 h-full font-bold text-gray-75 text-2xl border-gray-50 w-1/5 pb-2 mr-4">{{ $categories['strBackend'] }}</h2>
                         <x-element.button>項目を追加する</x-element.button>
                     </form>
                     <div class="border shadow rounded">
                         <div class="border-b py-4 grid grid-cols-4">
-                            <h3 class="w-56 pl-10">項目名</h3>
-                            <h3 class="w-56 col-span-3">学習時間</h3>
+                            <h3 class="w-56 pl-10 text-sm gray-87">項目名</h3>
+                            <h3 class="w-56 col-span-3 text-sm gray-87">学習時間</h3>
                         </div>
                         <div class="indi-learning-data">
                             @foreach($backend as $data)
                             <div class="py-4 border-b grid grid-cols-4">
-                                <h3 class="w-56 my-auto pl-10">{{ $data->learning_item }}</h3>
+                                <h3 class="w-56 my-auto pl-10 text-sm gray-87">{{ $data->learning_item }}</h3>
                                 <div class=" col-span-3 flex justify-between">
                                     {{-- <script>debugger;</script> --}}
                                     <x-learn.input-number :data="$data" :index="$count + $loop->iteration"/>
@@ -74,18 +74,18 @@ $count = 0;
                             @csrf
                             <input type="hidden" name="categoryName" value="{{ $categories['strFrontend'] }}">
                             <input type="hidden" name="month" id="selected-month-addItem2" value="">
-                            <h2 class="border-b-2 font-bold text-gray-600 border-gray-500 w-1/5 pb-3.5 mr-4">{{ $categories['strFrontend'] }}</h2>
+                            <h2 class="border-b-2 font-bold text-gray-75 border-gray-50 w-1/5 pb-3.5 mr-4">{{ $categories['strFrontend'] }}</h2>
                             <x-element.button>項目を追加する</x-element.button>
                         </form>
                     <div class="border shadow rounded">
                         <div class="border-b py-4 grid grid-cols-4">
-                            <h3 class="w-56 pl-10">項目名</h3>
-                            <h3 class="w-56 col-span-3">学習時間</h3>
+                            <h3 class="w-56 pl-10 text-sm gray-87">項目名</h3>
+                            <h3 class="w-56 col-span-3 text-sm gray-87">学習時間</h3>
                         </div>
                         <div class="indi-learning-data">
                             @foreach($frontend as $data)
                             <div class="py-4 border-b grid grid-cols-4">
-                                <h3 class="w-56 my-auto pl-10">{{ $data->learning_item }}</h3>
+                                <h3 class="w-56 my-auto pl-10 text-sm gray-87">{{ $data->learning_item }}</h3>
                                 <div class="col-span-3 flex justify-between">
                                     {{-- <script>debugger;</script> --}}
                                     <x-learn.input-number :data="$data" :index="$count + $loop->iteration"/>
@@ -118,18 +118,18 @@ $count = 0;
                         @csrf
                         <input type="hidden" name="categoryName" value="{{ $categories['strInfrastructure'] }}">
                         <input type="hidden" name="month" id="selected-month-addItem3" value="">
-                        <h2 class="border-b-2 font-bold text-gray-600 border-gray-500 w-1/5 pb-3.5 mr-4">{{ $categories['strInfrastructure'] }}</h2>
+                        <h2 class="border-b-2 font-bold text-gray-75 border-gray-50 w-1/5 pb-3.5 mr-4">{{ $categories['strInfrastructure'] }}</h2>
                         <x-element.button>項目を追加する</x-element.button>
                     </form>
                     <div class="border shadow rounded">
                         <div class="border-b py-4 grid grid-cols-4">
-                            <h3 class="w-56 pl-10">項目名</h3>
-                            <h3 class="w-56 col-span-3">学習時間</h3>
+                            <h3 class="w-56 pl-10 text-sm gray-87">項目名</h3>
+                            <h3 class="w-56 col-span-3 text-sm gray-87">学習時間</h3>
                         </div>
                         <div class="indi-learning-data">
                                 @foreach($infrastructure as $data)
                                 <div class="border-b py-4 grid grid-cols-4">
-                                    <h3 class="w-56 my-auto pl-10">{{ $data->learning_item }}</h3>
+                                    <h3 class="w-56 my-auto pl-10 text-sm gray-87">{{ $data->learning_item }}</h3>
                                     <div class="col-span-3 flex justify-between">
                                         {{-- <script>debugger;</script> --}}
                                         <x-learn.input-number :data="$data" :index="$count + $loop->iteration"/>

@@ -8,7 +8,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>{{ $title ?? 'sign in'}}</title>
 </head>
-<body class="bg-white w-full flex justify-center flex-col min-h-screen">
+<body class="bg-white w-full min-h-screen h-screen">
     {{ $slot }}
 </body>
 </html>

@@ -17,23 +17,37 @@ export default {
             },
             colors: {
                 'Bitterness-Blue': '#1B5678',
+                'gray-50': 'rgba(0, 0, 0, 0.5)',
+                'gray-54': 'rgba(0, 0, 0, 0.54)',
+                'gray-75': 'rgba(0, 0, 0, 0.75)',
+                'gray-87': 'rgba(0, 0, 0, 0.87)',
+            },
+            width: {
+                '360': '360px',
+                '480': '480px',
+                '960': '960px',
+              },
+            height: {
+                '120': '120px',
+                '360': '360px',
+                '1512': '1512px',
               },
         },
     },
 
     plugins: [forms,
         function ({ addUtilities }) {
-          const newUtilities = {
+            const newUtilities = {
                 '.input-num': {
                     '-webkit-appearance': 'none',
                     '&::-webkit-inner-spin-button': {
-                    position: 'absolute',
-                    top: '0',
-                    bottom: '0',
-                    right: '0',
-                    transform: 'scale(2)',
-                    opacity: '0',
-                    cursor: 'pointer',
+                        position: 'absolute',
+                        top: '0',
+                        bottom: '0',
+                        right: '0',
+                        transform: 'scale(2)',
+                        opacity: '0',
+                        cursor: 'pointer',
                     },
                 },
                 '.triangle-upward': {
@@ -68,7 +82,7 @@ export default {
                 },
 
             }
-          addUtilities(newUtilities)
+            addUtilities(newUtilities)
         },
     ]
 };
