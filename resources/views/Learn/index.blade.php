@@ -13,10 +13,12 @@ $count = 0;
 <script>
     function checkNonNegative(count) {
 
-        var learningTime = document.getElementById("learning-time" + count).value;
+        var learningTime = parseInt(document.getElementById("learning-time" + count).value);
         var saveButton = document.getElementById("save-button" + count);
 
-        if (Math.sign(learningTime) === 1 || learningTime === 0 ){
+        if ((Math.sign(learningTime) === 1 && Number.isInteger(learningTime)) || learningTime === 0 ){
+
+            document.getElementById("learning-time" + count).value = parseInt(learningTime);
             saveButton.disabled =  null;
 
             saveButton.classList.toggle('bg-gray-400', false);
