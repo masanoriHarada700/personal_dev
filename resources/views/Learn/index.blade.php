@@ -15,20 +15,19 @@ $count = 0;
 
         var learningTime = document.getElementById("learning-time" + count).value;
         var saveButton = document.getElementById("save-button" + count);
-        console.log(learningTime);
-        if (Math.sign(learningTime) === -1 ){
-            saveButton.disabled = true;
-
-            saveButton.classList.toggle('bg-white', false);
-            saveButton.classList.toggle('hover:bg-blue-600', false);
-            saveButton.classList.toggle('bg-gray-400', true);
-
-        } else {
-            saveButton.disabled = false;
+        console.log(Math.sign(learningTime));
+        if (Math.sign(learningTime) === 1 || learningTime === 0 ){
+            saveButton.disabled =  null;
 
             saveButton.classList.toggle('bg-gray-400', false);
             saveButton.classList.toggle('hover:bg-blue-600', true);
             saveButton.classList.toggle('bg-white', true);
+        } else {
+            saveButton.disabled = "disabled";
+
+            saveButton.classList.toggle('bg-white', false);
+            saveButton.classList.toggle('hover:bg-blue-600', false);
+            saveButton.classList.toggle('bg-gray-400', true);
 
         }
     }
