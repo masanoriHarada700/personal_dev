@@ -7,7 +7,7 @@
     </header>
     <main class="w-1/2 mx-auto flex flex-auto flex-col">
         <div class="w-480 mx-auto flex flex-col">
-        <h1 class="py-14 text-gray-54 text-2xl flex justify-center">ログイン</h1>
+        <h1 class="py-10 text-gray-54 text-2xl flex justify-center">ログイン</h1>
         <div class="flex flex-col items-center">
             <form action="{{ route('login') }}" method="POST" class="w-full">
                 @csrf

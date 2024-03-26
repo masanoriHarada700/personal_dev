@@ -1,5 +1,7 @@
 import Chart from "chart.js/auto";
 
+if (document.getElementById("myChart")) {
+
 const ctx = document.getElementById("myChart").getContext("2d");
 
 var categories = Object.keys(amountTimesByCategoryId);
@@ -85,4 +87,5 @@ const myChart = new Chart(ctx, {
 
         },
     },
-});
+})
+};

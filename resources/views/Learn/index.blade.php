@@ -9,6 +9,31 @@ $months = [
 ];
 $count = 0;
 @endphp
+
+<script>
+    function checkNonNegative(count) {
+
+        var learningTime = document.getElementById("learning-time" + count).value;
+        var saveButton = document.getElementById("save-button" + count);
+        console.log(learningTime);
+        if (Math.sign(learningTime) === -1 ){
+            saveButton.disabled = true;
+
+            saveButton.classList.toggle('bg-white', false);
+            saveButton.classList.toggle('hover:bg-blue-600', false);
+            saveButton.classList.toggle('bg-gray-400', true);
+
+        } else {
+            saveButton.disabled = false;
+
+            saveButton.classList.toggle('bg-gray-400', false);
+            saveButton.classList.toggle('hover:bg-blue-600', true);
+            saveButton.classList.toggle('bg-white', true);
+
+        }
+    }
+</script>
+
 <x-layout title="study">
     <x-header></x-header>
     <main class="py-5 flex flex-col items-center flex-grow">
@@ -167,7 +192,7 @@ $count = 0;
 </x-layout>
 
 <!-- jQueryの読み込み -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></>
 <script>
 $(document).ready(function(){
     $('#month-select').change(function(){
@@ -203,4 +228,6 @@ $(document).ready(function(){
     sendMonthSubmitListener('add-item2', 'selected-month-addItem2');
     sendMonthSubmitListener('add-item3', 'selected-month-addItem3');
 </script>
+
+
 

@@ -1,7 +1,7 @@
 <x-layout title="sign in">
     <div class="flex flex-col h-screen">
     <x-header></x-header>
-    <main class="w-1/2 mx-auto flex flex-1 overflow-auto">
+    <main class="w-1/2 mx-auto flex flex-1">
         <div class="w-480 mx-auto flex flex-col">
             <h1 class="py-14 text-2xl text-center text-gray-75">新規登録</h1>
             <form action="{{ route('user.create') }}" method="post" class="w-full">
@@ -13,7 +13,7 @@
                         @error('name')
                             <p class="pt-2" style="color: red;">{{ $message }}</p>
                         @enderror
-                <div class="mt-16">
+                <div class="mt-12">
                     <p class="text-xs text-gray-54">メールアドレス</p>
                     <div class="mt-2 py-1">
                         <input name="email"
@@ -27,7 +27,7 @@
                         @enderror
                     </div>
                 </div>
-                <div class="mt-16">
+                <div class="mt-12">
                     <p class="text-xs text-gray-54">パスワード</p>
                     <div class="mt-1 py-1">
                         <input type="password" name="password"
