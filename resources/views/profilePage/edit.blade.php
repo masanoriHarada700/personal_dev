@@ -48,19 +48,15 @@
 </script>
 
 <script>
-// ファイル入力要素を取得
+
 const fileInput = document.getElementById('file_upload');
 
-// ファイル名を表示する要素を取得
 const fileNameDisplay = document.getElementById('image');
 
-// ファイル入力の変更をListenするイベントリスナーを追加
 fileInput.addEventListener('change', function() {
 
-// ユーザーがファイルを選択した場合、そのファイルの名前を取得
   const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : '';
 
-// ファイル名を表示する要素にファイル名を設定
   fileNameDisplay.textContent = fileName;
 
 });
