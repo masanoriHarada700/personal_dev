@@ -20,8 +20,11 @@
                 </div>
                 <div class="my-10">
                     <p class="text-gray-400 text-sm">アバター画像</p>
-                    <label class="inline-block px-6 py-2 my-2 cursor-pointer bg-gray-200 rounded hover:text-white  hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" for="file_upload">
-                    <input type="file" class="hidden" id="file_upload" name="image" accept="image/*">画像ファイルを添付する</label>
+                    {{-- <label class="inline-block px-6 py-2 my-2 cursor-pointer bg-gray-200 rounded hover:text-white  hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" for="file_upload">
+                    <input type="file" class="hidden" id="file_upload" name="image" accept="image/*">画像ファイルを添付する</label><br> --}}
+                    <input type="file" class="hidden" id="file_upload" name="image" accept="image/*">
+                    <button type="button" id="fileSelect" class="px-6 py-2 my-2 cursor-pointer bg-gray-200 rounded hover:text-white  hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        画像ファイルを添付する</button><br>
                     <span id="image">{{ old('image') }}</span>
                 </div>
                 <div class="py-10 flex justify-center">
@@ -34,19 +37,31 @@
     <x-footer></x-footer>
     </div>
 </x-layout>
+
 <script>
-    // ファイル入力要素を取得
+    const fileSelect = document.getElementById("fileSelect");
+    const fileUpload = document.getElementById("file_upload");
+
+    fileSelect.addEventListener('click', function(){
+        fileUpload.click();
+    });
+</script>
+
+<script>
+// ファイル入力要素を取得
 const fileInput = document.getElementById('file_upload');
 
 // ファイル名を表示する要素を取得
 const fileNameDisplay = document.getElementById('image');
 
-// ファイル入力の変更をリスンするイベントリスナーを追加
+// ファイル入力の変更をListenするイベントリスナーを追加
 fileInput.addEventListener('change', function() {
-  // ユーザーがファイルを選択した場合、そのファイルの名前を取得
+
+// ユーザーがファイルを選択した場合、そのファイルの名前を取得
   const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : '';
 
-  // ファイル名を表示する要素にファイル名を設定
+// ファイル名を表示する要素にファイル名を設定
   fileNameDisplay.textContent = fileName;
+
 });
 </script>
