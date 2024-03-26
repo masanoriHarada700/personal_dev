@@ -15,7 +15,7 @@ $count = 0;
 
         var learningTime = document.getElementById("learning-time" + count).value;
         var saveButton = document.getElementById("save-button" + count);
-        console.log(Math.sign(learningTime));
+
         if (Math.sign(learningTime) === 1 || learningTime === 0 ){
             saveButton.disabled =  null;
 
@@ -179,7 +179,6 @@ $count = 0;
                     </div>
                 </div>
         </div>
-
     </main>
     <x-footer></x-footer>
     @if (session('editTime.success'))
@@ -191,7 +190,7 @@ $count = 0;
 </x-layout>
 
 <!-- jQueryの読み込み -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
     $('#month-select').change(function(){
