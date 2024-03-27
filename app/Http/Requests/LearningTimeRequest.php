@@ -22,7 +22,7 @@ class LearningTimeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'learning_time' => ['numeric', 'not_in:0', 'decimal:0', 'min:0',],
+            'learning_time' => ['required', 'numeric', 'decimal:0', 'min:0'],
         ];
     }
 }

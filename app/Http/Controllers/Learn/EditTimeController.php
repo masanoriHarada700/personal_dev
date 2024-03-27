@@ -19,7 +19,6 @@ class EditTimeController extends Controller
         $category = Category::where('name', $categoryName)->first();
         $yearMonth = $request->input('month');
         $month = Carbon::createFromFormat('Y-m', $yearMonth)->format('n');
-        $time = $request->learning_time;
 
         LearningData::where('user_id', $request->user()->id)
         ->where('learning_month', $month)
