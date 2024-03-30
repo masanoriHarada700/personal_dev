@@ -26,7 +26,6 @@ class DeleteController extends Controller
         ->where('category_id', $category->id)
         ->delete();
 
-        // session()->put('categoryName', $categoryName);
         session()->put('yearMonthOfUserAssign', $yearMonth);
 
         return redirect()->route('show_study')
